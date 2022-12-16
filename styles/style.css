@@ -1,0 +1,13 @@
+html, body {
+  background-color: #13121C;
+  color: #FFFFFF;
+}
+
+.loader-c {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=style.css.map */

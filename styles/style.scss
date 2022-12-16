@@ -1,0 +1,14 @@
+$bg-color: #13121C;
+$text-color: #FFFFFF;
+
+html, body {
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+.loader-c {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
