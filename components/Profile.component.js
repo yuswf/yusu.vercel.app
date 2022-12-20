@@ -100,7 +100,7 @@ function ProfileComponent() {
                                 </div>
                             )}
 
-                            {data.activities.length > 0 && data.activities.filter(activity => activity.type !== 2) && (
+                            {data.activities.length > 0 && data.activities.filter(activity => activity.type !== 2).length > 0 && (
                                 <div className="mt-4">
                                     <div className="grid grid-rows-2">
                                         <span className="text-sm text-[#9ca3af]">Playing</span>
