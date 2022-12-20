@@ -78,7 +78,7 @@ function ProfileComponent() {
                                 </div>
                             </div>
 
-                            {data.spotify.track_id && (
+                            {data.listening_to_spotify && data.spotify.track_id && (
                                 <div className="mt-4">
                                     <div className="grid grid-rows-2">
                                         <span className="text-sm text-[#9ca3af]">Listening to</span>
