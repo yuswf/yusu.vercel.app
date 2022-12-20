@@ -12,8 +12,6 @@ function ProfileComponent() {
         offline: '#697380',
     };
 
-    console.log(data);
-
     const avatar = process.env.cdnURL + "/avatars/" + process.env.id + "/" + data.discord_user.avatar;
 
     return (
