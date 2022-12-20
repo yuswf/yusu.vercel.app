@@ -107,7 +107,7 @@ function ProfileComponent() {
 
                                         {data.activities.filter(activity => activity.type !== 2).map((activity, i) => (
                                             <div key={i}>
-                                                {activity.name} {activity.details && activity.details !== '  ' ? '- ' + activity.details : '- Idle'}
+                                                {activity.name} {activity.details ? activity.details !== '  ' ? '- ' + activity.details : '- Idle' : ''}
                                             </div>
                                         ))}
                                     </div>
