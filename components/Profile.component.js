@@ -1,5 +1,7 @@
 import {useSelector} from 'react-redux';
 
+import IconComponent from './Icon.component';
+
 function ProfileComponent() {
     const {data} = useSelector(state => state.me);
 
@@ -12,14 +14,147 @@ function ProfileComponent() {
 
     const avatar = process.env.cdnURL + "/avatars/" + process.env.id + "/" + data.discord_user.avatar;
 
+    console.log(data)
+
     return (
-        <div>
-            b
+        <div className="flex p-10 justify-center cols-2 gap-3 h-screen profile-c">
+            <div className="grid grid-rows-3 grid-flow-col gap-3 w-1/3">
+                <div className="rounded-md row-span-2 h-full bg-[#1f2024]">
+                    <div className="p-5">
+                        <div className="mt-4 max-md:flex">
+                            <div className="relative">
+                                <img src={avatar} alt="pp" className="rounded-2xl w-[80px] h-[80px]"/>
+                                <div
+                                    className="absolute bottom-0 left-[70px] w-3 h-3 bg-green-500 rounded-full"
+                                    style={{backgroundColor: statusToColor[data.discord_status]}}/>
+                            </div>
+
+                            <h1 className="mt-2 text-xl font-bold">{data.discord_user.username}#{data.discord_user.discriminator}</h1>
+
+                            <ul className="mt-2">
+                                <li className="flex items-center gap-2">
+                                    <svg
+                                        className="w-4 h-4"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fillRule="evenodd"
+                                              d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                                              clipRule="evenodd"></path>
+                                        <path
+                                            d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"></path>
+                                    </svg>
+
+                                    <span className="text-[#9ca3af]">Front-end Developer</span>
+                                </li>
+
+                                <li className="flex items-center gap-2">
+                                    <svg
+                                        className="w-4 h-4"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fillRule="evenodd"
+                                              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                              clipRule="evenodd"></path>
+                                    </svg>
+
+                                    <span className="text-[#9ca3af]">Turkey</span>
+                                </li>
+                            </ul>
+
+                            <div className="mt-4">
+                                <div className="grid grid-rows-2">
+                                    <span className="text-sm text-[#9ca3af]">Email Address</span>
+                                    <span className="text-sm">yusu@duck.com</span>
+                                </div>
+
+                                <div className="mt-4 grid grid-rows-2">
+                                    <span className="text-sm text-[#9ca3af]">Active On</span>
+                                    {!data.active_on_discord_desktop && !data.active_on_discord_mobile && !data.active_on_discord_web && (
+                                        <span className="text-sm">None</span>
+                                    )}
+                                    {data.active_on_discord_desktop ?
+                                        <span className="text-sm">Discord Desktop</span> : null}
+                                    {data.active_on_discord_mobile ?
+                                        <span className="text-sm">Discord Mobile</span> : null}
+                                    {data.active_on_discord_web ? <span className="text-sm">Discord Web</span> : null}
+                                </div>
+                            </div>
+
+                            {data.spotify.track_id && (
+                                <div className="mt-4">
+                                    <div className="grid grid-rows-2">
+                                        <span className="text-sm text-[#9ca3af]">Listening to</span>
+
+                                        <div className="grid grid-cols-2">
+                                            <img src={data.spotify.album_art_url} alt="album art"
+                                                 className="w-8 h-8 rounded-md"/>
+
+                                            <span
+                                                className="text-sm"><a
+                                                href={`https://open.spotify.com/track/${data.spotify.track_id}`}
+                                                className="hover:underline truncate">{data.spotify.song}</a> - {data.spotify.artist.split(';').map((artist, i) => <>
+                                                <a key={i} className="cursor-pointer hover:underline">
+                                                    <span>{artist}</span>
+                                                </a>
+                                                {data.spotify.artist.split(';').length - 1 > i ? ', ' : ''}
+                                            </>)}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {data.activities.length > 0 && data.activities.filter(activity => activity.type !== 2) && (
+                                <div className="mt-4">
+                                    <div className="grid grid-rows-2">
+                                        <span className="text-sm text-[#9ca3af]">Playing</span>
+
+                                        {data.activities.filter(activity => activity.type !== 2).map((activity, i) => (
+                                            <div key={i}>
+                                                {activity.name} - {activity.details}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            <div className="mt-4">
+                                <div className="grid grid-rows-2">
+                                    <span className="text-sm text-[#9ca3af]">Skills</span>
+
+                                    <div>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="html5" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="css3" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="javascript" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="node-dot-js" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="react" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="next-dot-js" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="tailwindcss" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="firebase" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="mongodb" width={24} height={24} /></span>
+                                        <span className="rounded-md"><IconComponent icon="git" width={24} height={24} /></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="rounded-md h-full bg-[#1f2024]">
+                    1.2
+                </div>
+            </div>
+
+            <div className="rounded-md bg-[#1f2024] w-full">
+                2
+            </div>
         </div>
     )
 }
 
 /*
+<div
+                className="w-2 h-2 bg-green-500 rounded-full"
+                style={{backgroundColor: statusToColor[data.discord_user.status]}}/>
+
 <div className="w-[1308px] p-10 mx-auto sm:grid-cols-1 sm:p-6">
             <div className="grid grid-cols-2 gap-4">
                 <div className="text-white bg-gradient-to-br from-purple-600 via-purple-500 via-yellow-500 to-blue-500 transition rounded">
