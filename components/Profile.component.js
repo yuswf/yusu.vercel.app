@@ -87,7 +87,7 @@ function ProfileComponent() {
 
                                             <span
                                                 className="text-sm"><a
-                                                href={`https://open.spotify.com/track/${data.spotify.track_id}`}
+                                                href={`https://open.spotify.com/track/${data.spotify?.track_id}`}
                                                 className="hover:underline truncate">{data.spotify.song}</a> - {data.spotify.artist.split(';').map((artist, i) => <>
                                                 <a key={i} className="cursor-pointer hover:underline">
                                                     <span>{artist}</span>
