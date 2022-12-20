@@ -14,8 +14,6 @@ function ProfileComponent() {
 
     const avatar = process.env.cdnURL + "/avatars/" + process.env.id + "/" + data.discord_user.avatar;
 
-    console.log(data)
-
     return (
         <div className="flex p-10 justify-center cols-2 gap-3 h-screen profile-c">
             <div className="grid grid-rows-3 grid-flow-col gap-3 w-1/3">
@@ -109,7 +107,7 @@ function ProfileComponent() {
 
                                         {data.activities.filter(activity => activity.type !== 2).map((activity, i) => (
                                             <div key={i}>
-                                                {activity.name} - {activity.details}
+                                                {activity.name} - {activity.details !== '  ' ? activity.details : 'Idle'}
                                             </div>
                                         ))}
                                     </div>
