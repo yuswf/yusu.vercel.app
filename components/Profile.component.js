@@ -19,7 +19,7 @@ function ProfileComponent() {
             <div className="grid grid-rows-3 grid-flow-col gap-3 w-1/3">
                 <div className="rounded-md row-span-2 h-full bg-[#1f2024]">
                     <div className="p-5">
-                        <div className="mt-4 max-md:flex">
+                        <div className="mt-1 max-md:flex">
                             <div className="relative">
                                 <img src={avatar} alt="pp" className="rounded-2xl w-[80px] h-[80px]"/>
                                 <div
@@ -107,7 +107,7 @@ function ProfileComponent() {
 
                                         {data.activities.filter(activity => activity.type !== 2).map((activity, i) => (
                                             <div key={i}>
-                                                {activity.name} {activity.details !== '  ' ? '- ' + activity.details : '- Idle'}
+                                                {activity.name} {activity.details && activity.details !== '  ' ? '- ' + activity.details : '- Idle'}
                                             </div>
                                         ))}
                                     </div>
