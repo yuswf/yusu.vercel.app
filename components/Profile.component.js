@@ -3,8 +3,6 @@ import {useSelector} from 'react-redux';
 function ProfileComponent() {
     const {data} = useSelector(state => state.me);
 
-    console.log(data)
-
     const statusToColor = {
         online: '#3ba55c',
         idle: '#faa61a',

@@ -16,12 +16,6 @@ export default function Home() {
     if (!data) return <LoaderComponent />
 
     const avatar = process.env.cdnURL + "/avatars/" + process.env.id + "/" + data.discord_user.avatar;
-    const statusToColor = {
-        online: '#3ba55c',
-        idle: '#faa61a',
-        dnd: '#ed4245',
-        offline: '#697380'
-    };
 
     dispatch(setData(data));
 
