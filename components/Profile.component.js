@@ -16,10 +16,10 @@ function ProfileComponent() {
 
     return (
         <div className="flex p-10 justify-center cols-2 gap-3 h-screen profile-c">
-            <div className="grid grid-rows-3 grid-flow-col gap-3 w-1/3">
-                <div className="rounded-md row-span-2 h-full bg-[#1f2024]">
+            <div className="grid grid-rows-4 grid-flow-col gap-3 w-1/3">
+                <div className="rounded-md row-span-3 h-full bg-[#1f2024]">
                     <div className="p-5">
-                        <div className="max-md:flex">
+                        <div className="mt-2 max-md:flex">
                             <div className="relative">
                                 <img src={avatar} alt="pp" className="rounded-2xl w-[80px] h-[80px]"/>
                                 <div
