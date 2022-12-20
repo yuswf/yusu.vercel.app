@@ -12,6 +12,8 @@ function ProfileComponent() {
         offline: '#697380',
     };
 
+    console.log(data);
+
     const avatar = process.env.cdnURL + "/avatars/" + process.env.id + "/" + data.discord_user.avatar;
 
     return (
@@ -19,7 +21,7 @@ function ProfileComponent() {
             <div className="grid grid-rows-3 grid-flow-col gap-3 w-1/3">
                 <div className="rounded-md row-span-2 h-full bg-[#1f2024]">
                     <div className="p-5">
-                        <div className="mt-4 max-md:flex">
+                        <div className="max-md:flex">
                             <div className="relative">
                                 <img src={avatar} alt="pp" className="rounded-2xl w-[80px] h-[80px]"/>
                                 <div
@@ -87,7 +89,7 @@ function ProfileComponent() {
 
                                             <span
                                                 className="text-sm"><a
-                                                href={`https://open.spotify.com/track/${data.spotify.track_id}`}
+                                                href={`https://open.spotify.com/track/${data.spotify?.track_id}`}
                                                 className="hover:underline truncate">{data.spotify.song}</a> - {data.spotify.artist.split(';').map((artist, i) => <>
                                                 <a key={i} className="cursor-pointer hover:underline">
                                                     <span>{artist}</span>
@@ -100,14 +102,15 @@ function ProfileComponent() {
                                 </div>
                             )}
 
-                            {data.activities.length > 0 && data.activities.filter(activity => activity.type !== 2) && (
+                            {data.activities.length > 0 && data.activities.filter(activity => activity.type !== 2).length > 0 && (
                                 <div className="mt-4">
                                     <div className="grid grid-rows-2">
                                         <span className="text-sm text-[#9ca3af]">Playing</span>
 
                                         {data.activities.filter(activity => activity.type !== 2).map((activity, i) => (
                                             <div key={i}>
-                                                {activity.name} - {activity.details !== '  ' ? activity.details : 'Idle'}
+                                                {activity.name} {activity.details ? activity.details !== '  ' ? '- ' + activity.details : '- Idle' : ''}
+                                                {activity.type === 4 && '- ' + activity.state}
                                             </div>
                                         ))}
                                     </div>
@@ -119,16 +122,25 @@ function ProfileComponent() {
                                     <span className="text-sm text-[#9ca3af]">Skills</span>
 
                                     <div>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="html5" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="css3" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="javascript" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="node-dot-js" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="react" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="next-dot-js" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="tailwindcss" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="firebase" width={24} height={24} /></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="mongodb" width={24} height={24} /></span>
-                                        <span className="rounded-md"><IconComponent icon="git" width={24} height={24} /></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="html5" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="css3" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="javascript" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="node-dot-js" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="react" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="next-dot-js" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="tailwindcss" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="firebase" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="mr-2 rounded-md"><IconComponent icon="mongodb" width={24}
+                                                                                         height={24}/></span>
+                                        <span className="rounded-md"><IconComponent icon="git" width={24} height={24}/></span>
                                     </div>
                                 </div>
                             </div>
