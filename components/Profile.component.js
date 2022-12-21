@@ -17,7 +17,7 @@ function ProfileComponent() {
     return (
         <div className="lg:flex p-10 lg:justify-center lg:cols-2 gap-3 h-screen profile-c">
             <div className="lg:grid lg:grid-rows-4 lg:grid-flow-col gap-3 lg:w-2/5">
-                <div className="rounded-md lg:row-span-3 h-full bg-[#1f2024]">
+                <div className="rounded-md lg:row-span-3 max-lg:h-[725px] lg:h-full bg-[#1f2024]">
                     <div className="p-5">
                         <div className="mt-2 lg:max-md:flex">
                             <div className="relative">
@@ -154,38 +154,126 @@ function ProfileComponent() {
             </div>
 
             <div className="rounded-md p-5 max-lg:mt-3 bg-[#1f2024] w-full">
-                2
+                <h1 className="text-[20px] font-bold mb-4">General Information</h1>
+
+                <div className="text-lg">
+                    <h1 className="font-medium">About Me</h1>
+
+                    <div>
+                        <p className="text-[#9ca3af] text-sm">I'm a 18 years old developer from Turkey. I'm currently
+                            working on a few projects, and I'm also learning new things.</p>
+                    </div>
+                </div>
+
+                <div className="mt-4 grid lg:grid-cols-4 max-lg:grid-cols-2 lg:w-8/12 max-md:gap-4 lg:gap-8">
+                    <ul className="mt-4">
+                        <li className="text-sm text-[#9ca3af]">Languages</li>
+                        <li className="text-sm font-bold">Turkish (Native)</li>
+                        <li className="text-sm font-bold">English (?)</li>
+                    </ul>
+
+                    <ul className="mt-4">
+                        <li className="text-sm text-[#9ca3af]">Interests</li>
+                        <li className="font-bold text-sm">Web Development</li>
+                        <li className="font-bold text-sm">UI/UX Design</li>
+                    </ul>
+
+                    <ul className="mt-4">
+                        <li className="text-sm text-[#9ca3af]">Hobbies</li>
+                        <li className="font-bold text-sm">Playing Games</li>
+                        <li className="font-bold text-sm">Watching Movies</li>
+                        <li className="font-bold text-sm">Listening to Music</li>
+                    </ul>
+
+                    <ul className="mt-4">
+                        <li className="text-sm text-[#9ca3af]">Favorite Games</li>
+                        <li className="font-bold text-sm">VALORANT</li>
+                        <li className="font-bold text-sm">Fortnite</li>
+                        <li className="font-bold text-sm">Grand Theft Auto V</li>
+                    </ul>
+
+                    <ul className="mt-4">
+                        <li className="text-sm text-[#9ca3af]">Birthday</li>
+                        <li className="font-bold text-sm">Sep 09, 2004</li>
+                    </ul>
+
+
+                    <ul className="mt-4">
+                        <li className="text-sm text-[#9ca3af]">Education</li>
+                        <li className="font-bold text-sm">Anatolian High School</li>
+                    </ul>
+                </div>
             </div>
         </div>
     )
 }
 
 /*
+
+<div>
+                    <h1 className="font-medium mt-4">My Projects</h1>
+
+                    <div className="mt-4">
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="rounded-md p-4 bg-[#2f3136]">
+                                <div className="grid grid-rows-2">
+                                    <div className="grid grid-cols-2">
+                                        <div className="col-span-1">
+                                            <h1 className="text-lg font-medium">Discord Bot</h1>
+
+                                            <div className="mt-2">
+                                                <span className="text-sm text-[#9ca3af]">Language</span>
+                                                <span className="text-sm">JavaScript</span>
+
+                                                <span className="text-sm text-[#9ca3af] ml-4">Framework</span>
+                                                <span className="text-sm">Discord.js</span>
+
+                                                <span className="text-sm text-[#9ca3af] ml-4">Status</span>
+                                                <span className="text-sm">In Development</span>
+
+                                                <span className="text-sm text-[#9ca3af] ml-4">Type</span>
+                                                <span className="text-sm">Open Source</span>
+
+                                                <span className="text-sm text-[#9ca3af] ml-4">License</span>
+                                                <span className="text-sm">MIT</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 <div
-                className="w-2 h-2 bg-green-500 rounded-full"
-                style={{backgroundColor: statusToColor[data.discord_user.status]}}/>
+    className="w-2 h-2 bg-green-500 rounded-full"
+    style={{backgroundColor: statusToColor[data.discord_user.status]}}/>
 
 <div className="w-[1308px] p-10 mx-auto sm:grid-cols-1 sm:p-6">
-            <div className="grid grid-cols-2 gap-4">
-                <div className="text-white bg-gradient-to-br from-purple-600 via-purple-500 via-yellow-500 to-blue-500 transition rounded">
-                    <div className="relative mt-5 ml-5">
-                        <Image width={16} height={16} className="h-16 w-16 rounded-full" src={avatar} alt=""/>
-                        <span
-                            className="bottom-0 left-11 absolute w-4 h-4 rounded-full"
-                            style={{backgroundColor: `${statusToColor[data.discord_status]}`}}/>
-                    </div>
-                </div>
-
-                <div className="text-white bg-gradient-to-br from-purple-600 via-purple-500 via-yellow-500 to-blue-500 transition rounded">
-                    <div className="relative mt-5 ml-5">
-                        <Image width={16} height={16} className="h-16 w-16 rounded-full" src={avatar} alt=""/>
-                        <span
-                            className="bottom-0 left-11 absolute w-4 h-4 rounded-full"
-                            style={{backgroundColor: `${statusToColor[data.discord_status]}`}}/>
-                    </div>
-                </div>
+    <div className="grid grid-cols-2 gap-4">
+        <div
+            className="text-white bg-gradient-to-br from-purple-600 via-purple-500 via-yellow-500 to-blue-500 transition rounded">
+            <div className="relative mt-5 ml-5">
+                <Image width={16} height={16} className="h-16 w-16 rounded-full" src={avatar}
+                       alt=""/>
+                <span
+                    className="bottom-0 left-11 absolute w-4 h-4 rounded-full"
+                    style={{backgroundColor: `${statusToColor[data.discord_status]}`}}/>
             </div>
         </div>
+
+        <div
+            className="text-white bg-gradient-to-br from-purple-600 via-purple-500 via-yellow-500 to-blue-500 transition rounded">
+            <div className="relative mt-5 ml-5">
+                <Image width={16} height={16} className="h-16 w-16 rounded-full" src={avatar}
+                       alt=""/>
+                <span
+                    className="bottom-0 left-11 absolute w-4 h-4 rounded-full"
+                    style={{backgroundColor: `${statusToColor[data.discord_status]}`}}/>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div className="flex flex-wrap items-center justify-center">
     <div
@@ -193,7 +281,8 @@ function ProfileComponent() {
 
         <div className="flex justify-start px-5 -mt-12 mb-5">
             <div className="relative">
-                <Image width={16} height={16} className="h-16 w-16 rounded-full" src={avatar} alt=""/>
+                <Image width={16} height={16} className="h-16 w-16 rounded-full" src={avatar}
+                       alt=""/>
                 <span
                     className="bottom-0 left-11 absolute w-3.5 h-3.5 rounded-full"
                     style={{backgroundColor: `${statusToColor[data.discord_status]}`}}/>
@@ -201,12 +290,14 @@ function ProfileComponent() {
         </div>
         <div className="">
             <div className="px-7 mb-8">
-                <h2 className="text-3xl font-bold text-green-800 dark:text-gray-300">Beth J. Greene</h2>
+                <h2 className="text-3xl font-bold text-green-800 dark:text-gray-300">Beth J.
+                    Greene</h2>
                 <p className="text-gray-400 mt-2 dark:text-gray-400">Illustrator</p>
                 <p className="mt-2 text-gray-600 dark:text-gray-300">Lorem ipsum dolor sit amet
                     consectetur,
                     adipisicing elit.
-                    Asperiores molestiae vitae odio non commodi itaque quisquam incidunt doloribus fugit
+                    Asperiores molestiae vitae odio non commodi itaque quisquam incidunt
+                    doloribus fugit
                     nesciunt.</p>
                 <div
                     className="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
