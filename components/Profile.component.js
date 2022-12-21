@@ -160,7 +160,7 @@ function ProfileComponent() {
                     <h1 className="font-medium">About Me</h1>
 
                     <div>
-                        <p className="text-[#9ca3af] text-sm">I'm a 18 years old developer from Turkey. I'm currently
+                        <p className="text-[#9ca3af] text-sm">I&apos;m a 18 years old developer from Turkey. I'm currently
                             working on a few projects, and I'm also learning new things.</p>
                     </div>
                 </div>
