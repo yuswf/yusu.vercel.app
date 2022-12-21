@@ -15,11 +15,11 @@ function ProfileComponent() {
     const avatar = process.env.cdnURL + "/avatars/" + process.env.id + "/" + data.discord_user.avatar;
 
     return (
-        <div className="flex p-10 justify-center cols-2 gap-3 h-screen profile-c">
-            <div className="grid grid-rows-4 grid-flow-col gap-3 w-1/3">
-                <div className="rounded-md row-span-3 h-full bg-[#1f2024]">
+        <div className="lg:flex p-10 lg:justify-center lg:cols-2 gap-3 h-screen profile-c">
+            <div className="lg:grid lg:grid-rows-4 lg:grid-flow-col gap-3 lg:w-2/5">
+                <div className="rounded-md lg:row-span-3 h-full bg-[#1f2024]">
                     <div className="p-5">
-                        <div className="mt-2 max-md:flex">
+                        <div className="mt-2 lg:max-md:flex">
                             <div className="relative">
                                 <img src={avatar} alt="pp" className="rounded-2xl w-[80px] h-[80px]"/>
                                 <div
@@ -81,12 +81,14 @@ function ProfileComponent() {
                                     <div className="grid grid-rows-2">
                                         <span className="text-sm text-[#9ca3af]">Listening to</span>
 
-                                        <div className="grid grid-cols-2">
-                                            <img src={data.spotify.album_art_url} alt="album art"
-                                                 className="w-8 h-8 rounded-md"/>
+                                        <div className="grid grid-cols-5">
+                                            <div className="">
+                                                <img src={data.spotify.album_art_url} alt="album art"
+                                                     className="w-8 h-8 rounded-md"/>
+                                            </div>
 
                                             <span
-                                                className="text-sm"><a
+                                                className="col-span-4 text-sm"><a
                                                 href={`https://open.spotify.com/track/${data.spotify?.track_id}`}
                                                 className="hover:underline truncate">{data.spotify.song}</a> - {data.spotify.artist.split(';').map((artist, i) => <>
                                                 <a key={i} className="cursor-pointer hover:underline">
@@ -146,12 +148,12 @@ function ProfileComponent() {
                     </div>
                 </div>
 
-                <div className="rounded-md h-full bg-[#1f2024]">
+                <div className="rounded-md p-5 max-lg:mt-3 h-full bg-[#1f2024]">
                     1.2
                 </div>
             </div>
 
-            <div className="rounded-md bg-[#1f2024] w-full">
+            <div className="rounded-md p-5 max-lg:mt-3 bg-[#1f2024] w-full">
                 2
             </div>
         </div>
