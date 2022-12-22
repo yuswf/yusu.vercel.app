@@ -90,12 +90,12 @@ function ProfileComponent() {
                                             <span
                                                 className="col-span-4 text-sm"><a
                                                 href={`https://open.spotify.com/track/${data.spotify?.track_id}`}
-                                                className="hover:underline truncate">{data.spotify.song}</a> - {data.spotify.artist.split(';').map((artist, i) => <>
-                                                <a key={i} className="cursor-pointer hover:underline">
+                                                className="hover:underline truncate">{data.spotify.song}</a> - {data.spotify.artist.split(';').map((artist, i) => <div key={i}>
+                                                <a className="cursor-pointer hover:underline">
                                                     <span>{artist}</span>
                                                 </a>
                                                 {data.spotify.artist.split(';').length - 1 > i ? ', ' : ''}
-                                            </>)}
+                                            </div>)}
                                             </span>
                                         </div>
                                     </div>
@@ -122,25 +122,25 @@ function ProfileComponent() {
                                     <span className="text-sm text-[#9ca3af]">Skills</span>
 
                                     <div>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="html5" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="css3" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="javascript" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="node-dot-js" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="react" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="next-dot-js" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="tailwindcss" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="firebase" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="mr-2 rounded-md"><IconComponent icon="mongodb" width={24}
-                                                                                         height={24}/></span>
-                                        <span className="rounded-md"><IconComponent icon="git" width={24} height={24}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="html5" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="css3" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="javascript" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="node-dot-js" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="react" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="next-dot-js" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="tailwindcss" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="firebase" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="mr-1 rounded-md"><IconComponent icon="mongodb" width={22}
+                                                                                         height={22}/></span>
+                                        <span className="rounded-md"><IconComponent icon="git" width={22} height={22}/></span>
                                     </div>
                                 </div>
                             </div>
